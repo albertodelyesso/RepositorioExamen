@@ -10,6 +10,10 @@ public class FRAME {
 		}
 	}
 	
+	public boolean soyExtra(){
+		return false;
+	}
+	
 	public int getPrimero(){
 		return (int) lista.get(0);
 	}

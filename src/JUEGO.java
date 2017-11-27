@@ -67,26 +67,26 @@ public class JUEGO {
 		int extras = 0;
 		int todo = 0;
 		int tamanio = puntajes.size();
-		System.out.println("tamanio: "+ tamanio);
+
 		for(int i = 0 ; i < tamanio; i++){
 			acum = puntajes.get(i).verPuntaje();
-			System.out.println(acum);
+
 			if (this.framePleno(puntajes.get(i))){
 				k = i + 1;
 				if(k < 10){
 					extras = puntajes.get(i+1).verPuntaje();
-					System.out.println(extras);
+
 				}
 				k = k + 1;
 				if(k <10){
 					extras = extras + puntajes.get(i+2).verPuntaje();
-					System.out.println(extras);
+
 				}
 			}
 			acum = acum + extras;
 			todo = todo + acum;
 		}
-		System.out.println("--- "+ todo );
+
 		return todo;
 	}
 
@@ -101,7 +101,7 @@ public class JUEGO {
 		}
 		
 		if(r == true){
-			puntajes.add(new FRAME());
+			puntajes.add(new FRAMEEXTRA());
 		}
 		
 		return r;
@@ -109,7 +109,7 @@ public class JUEGO {
 
 	void agregarExtra() {
 		// TODO Auto-generated method stub
-		puntajes.add(new FRAME());
+		puntajes.add(new FRAMEEXTRA());
 	}
 	
 	
