@@ -26,18 +26,39 @@ public class FRAME {
 		this.lista.set(1, n);
 	}
 	
-	public int realizarTiro(int pinos) {
+	public int realizarPrimerTiro(int pinos) {
 		// TODO Auto-generated method stub
 		int r = pinos;	
 		
-		if (pinos >= 0 && pinos < 11){
-			this.lista.add(pinos);
+		if (pinos >= 0 && pinos <= 10){
+			//buen valor
+			this.setPrimero(pinos);
 			
-			System.out.println("tiro CORRECTO = " + r);
 		}else{
-			System.out.println("tiro INCORRECTO = " + 0);
+			//mal valor
 			r = 0;
 		}
+		return r;
+	}
+	
+	public int realizarSegundoTiro(int pinos) {
+		// TODO Auto-generated method stub
+		int r = pinos;	
+		int quedan = 10 -this.getPrimero();
+		if (pinos >= 0 && quedan >= pinos){
+			//buen valor
+			this.setSegundo(pinos);
+		}else{
+			//mal valor
+			r = 0;
+		}
+		return r;
+	}
+
+	public int verPuntaje() {
+		// TODO Auto-generated method stub
+		int r = 0;
+		r = this.getPrimero() + this.getSegundo();
 		return r;
 	}
 	

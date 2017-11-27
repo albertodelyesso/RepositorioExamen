@@ -7,19 +7,22 @@ public class JUEGO {
 	public JUEGO(){
 		for (int i = 0; i < 10; i++){
 			puntajes.add(new FRAME());
-			System.out.println("Constructor tiene: "+ i);
 		}
+	}
+	
+	public ArrayList<FRAME> getPuntajes(){
+		return this.puntajes;
 	}
 
 	public void puntuarPrimero(int tiro1, int turno) {
 		
-		puntajes.get(turno).setPrimero(tiro1);
+		puntajes.get(turno).realizarPrimerTiro(tiro1);
 		
 	}
 
-	public void puntuarsEGUNDO(int tiro2, int turno) {
+	public void puntuarSegundo(int tiro2, int turno) {
 		
-		puntajes.get(turno).setSegundo(tiro2);
+		puntajes.get(turno).realizarSegundoTiro(tiro2);
 		
 	}
 	
@@ -27,8 +30,16 @@ public class JUEGO {
 		// TODO Auto-generated method stub
 		boolean r = true;
 
+		int valor1;
+		int valor2;
+		int total;
+
 		for (int i = 0; i < 10; i++){
-			if(puntajes.get(i).getPrimero() < 10 && puntajes.get(i).getSegundo() < 10){
+			valor1 = puntajes.get(i).getPrimero();
+			valor2 = puntajes.get(i).getSegundo();
+			total = valor1 + valor2;
+
+			if( total  < 10){
 				r = false;
 			}
 		}
