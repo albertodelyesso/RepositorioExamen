@@ -47,7 +47,7 @@ public class FrameTest {
 		f.realizarPrimerTiro(pino1);
 		f.realizarSegundoTiro(pino2);
 		Assert.assertEquals(f.getPrimero(), 0);
-		Assert.assertEquals(f.getSegundo(), 0);
+		Assert.assertEquals(f.getSegundo(), 7);
 	}
 	
 

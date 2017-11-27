@@ -47,4 +47,52 @@ public class JUEGO {
 		return r;
 	}
 	
+	public boolean framePleno(FRAME f){
+		boolean r = false;
+		
+		if(f.getPrimero() == 10){
+			System.out.println("--- "+f.getPrimero());
+			r = true;
+			
+		}
+		return r;
+	}
+	
+	
+
+	public int calcularPuntaje() {
+		// TODO Auto-generated method stub
+		ArrayList<Integer> extras = new ArrayList<Integer>();
+		int contador = 0;
+		int acum = 0;
+		for(int i = 0 ; i < puntajes.size(); i++){
+			acum = puntajes.get(i).verPuntaje();
+			if (this.framePleno(puntajes.get(i))){
+
+				for (int k = 1; k < 3; k++){
+					if ((i+k) < puntajes.size()){
+						acum = puntajes.get(i+k).verPuntaje();						
+					}
+				}
+			}
+		}
+		
+		return acum;
+	}
+
+	public boolean TodosPlenos() {
+		// TODO Auto-generated method stub
+		boolean r = true;
+		
+		for(int i = 0 ; i < puntajes.size(); i++){
+			if(this.framePleno(puntajes.get(i)) == false){
+				r = false;
+			}
+		}
+		
+		return r;
+	}
+	
+	
+	
 }
