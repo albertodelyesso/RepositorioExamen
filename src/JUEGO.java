@@ -51,7 +51,6 @@ public class JUEGO {
 		boolean r = false;
 		
 		if(f.getPrimero() == 10){
-			System.out.println("--- "+f.getPrimero());
 			r = true;
 			
 		}
@@ -62,35 +61,55 @@ public class JUEGO {
 
 	public int calcularPuntaje() {
 		// TODO Auto-generated method stub
-		ArrayList<Integer> extras = new ArrayList<Integer>();
-		int contador = 0;
-		int acum = 0;
-		for(int i = 0 ; i < puntajes.size(); i++){
-			acum = puntajes.get(i).verPuntaje();
-			if (this.framePleno(puntajes.get(i))){
 
-				for (int k = 1; k < 3; k++){
-					if ((i+k) < puntajes.size()){
-						acum = puntajes.get(i+k).verPuntaje();						
-					}
+		int acum = 0;
+		int k;
+		int extras = 0;
+		int todo = 0;
+		int tamanio = puntajes.size();
+		System.out.println("tamanio: "+ tamanio);
+		for(int i = 0 ; i < tamanio; i++){
+			acum = puntajes.get(i).verPuntaje();
+			System.out.println(acum);
+			if (this.framePleno(puntajes.get(i))){
+				k = i + 1;
+				if(k < 10){
+					extras = puntajes.get(i+1).verPuntaje();
+					System.out.println(extras);
+				}
+				k = k + 1;
+				if(k <10){
+					extras = extras + puntajes.get(i+2).verPuntaje();
+					System.out.println(extras);
 				}
 			}
+			acum = acum + extras;
+			todo = todo + acum;
 		}
-		
-		return acum;
+		System.out.println("--- "+ todo );
+		return todo;
 	}
 
 	public boolean TodosPlenos() {
 		// TODO Auto-generated method stub
 		boolean r = true;
 		
-		for(int i = 0 ; i < puntajes.size(); i++){
+		for(int i = 0 ; i < 10; i++){
 			if(this.framePleno(puntajes.get(i)) == false){
 				r = false;
 			}
 		}
 		
+		if(r == true){
+			puntajes.add(new FRAME());
+		}
+		
 		return r;
+	}
+
+	void agregarExtra() {
+		// TODO Auto-generated method stub
+		puntajes.add(new FRAME());
 	}
 	
 	

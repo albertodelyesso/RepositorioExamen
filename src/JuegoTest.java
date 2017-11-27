@@ -54,14 +54,20 @@ public class JuegoTest {
 	@Test
 	public void puntajeTotal(){
 		JUEGO j = new JUEGO();
-		
-		for (int turno = 0; turno < 11;turno++ ){
+				
+		for (int turno = 0; turno < 10;turno++ ){
 			j.puntuarPrimero(10, turno);
-			j.puntuarSegundo(0, turno);	
+			j.puntuarSegundo(0, turno);
+			System.out.println(turno);
 		}
-		
+		j.agregarExtra();
+		j.puntuarPrimero(10, 10);
+		j.puntuarSegundo(0, 10);
+		System.out.println(10);
 		System.out.println(j.calcularPuntaje());
 		Assert.assertEquals(300, j.calcularPuntaje());
 	}
 
+	
+	
 }
